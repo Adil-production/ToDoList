@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<style>
+   
+    #input:focus , #input1:focus , #input2:focus{
+         outline: none;
+         
+    }
+    #input , #input1 , #input2{
+         resize: none;
+         padding: 10px;
+         border-radius: 20px;
+         background-color: rgb(181, 226, 252);
+         color: black;
+         font-size: 20px;
+         width: 95%;
+         height: 70vh;  
+         box-shadow: 0px 0px 10px 0.5px rgb(49, 49, 49);
+    }
+    #title{
+        background-color: rgb(0, 162, 255);
+        padding: 10px;
+        color: white;
+        box-shadow: 0px 5px 20px 2px rgb(49, 49, 49);
+        width: 100%;
+        margin: -8px;
+        position: fixed;
+    }
+    #title2{
+        background-color: rgb(0, 162, 255);
+        padding: 10px;
+        color: white;
+        box-shadow: 0px 5px 20px 2px rgb(49, 49, 49);
+        width: 100%;
+        margin: -8px;
+        position: fixed;
+    }
+    .title-btn{
+        outline: none;
+        width: 34.5%;
+        padding: 15px;
+        margin: -5px;
+        color: white;
+        background : none;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom: none;
+       transform: translateY(10%)   ;
+    }
+    #to-do , #doing1 , #done1{
+        display: none;
+    }
+    #all{
+        display: none;
+    }
+    .btn{
+        margin: 10px;
+        padding: 10px;
+        border: none;
+        background-color: rgb(202, 202, 202);
+        border-bottom: rgb(0, 162, 255) 5px solid;
+        color:rgb(0, 162, 255) ;
+    }
+    .btn:focus{
+    outline: none;
+    }
+    #back{
+        display: inline-block;
+        position: absolute;
+       left: 15px;
+       transform: translateY(90%);
+    }
+</style>
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body onload="get()">
+<div id="all2">
+    <div align="center" id="title2">
+        <h3>To do list</h3>
+    </div>
+   
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div align="center">
+    <button onclick="goToDo()" class="btn">To do</button>
+    <button onclick="goDoing()" class="btn">Doing</button>
+    <button onclick="goDone()" class="btn">Done</button>
+    <script>
+        function goToDo(){
+                document.getElementById("all2").style.display = "none";
+                document.getElementById("all").style.display = "block";
+                document.body.style.backgroundImage = "none";
+                document.getElementById("todo").style.borderBottom = "5px solid rgb(7, 76, 133)";
+                document.getElementById("doing").style.borderBottom = "none";
+                document.getElementById("done").style.borderBottom = "none";
+                document.getElementById("to-do").style.display = "block";
+                document.getElementById("doing1").style.display = "none";
+                document.getElementById("done1").style.display = "none";
+        }
+        function goDoing(){
+            document.getElementById("all2").style.display = "none";
+                document.getElementById("all").style.display = "block";
+                document.body.style.backgroundImage = "none";
+            document.getElementById("doing").style.borderBottom = "5px solid rgb(7, 76, 133)";
+                document.getElementById("todo").style.borderBottom = "none";
+                document.getElementById("done").style.borderBottom = "none";
+                document.getElementById("to-do").style.display = "none";
+                document.getElementById("doing1").style.display = "block";
+                document.getElementById("done1").style.display = "none";
+        }
+        function goDone(){
+            document.getElementById("all2").style.display = "none";
+                document.getElementById("all").style.display = "block";
+                document.body.style.backgroundImage = "none";
+            document.getElementById("done").style.borderBottom = "5px solid rgb(7, 76, 133)";
+                document.getElementById("doing").style.borderBottom = "none";
+                document.getElementById("todo").style.borderBottom = "none";
+                document.getElementById("to-do").style.display = "none";
+                document.getElementById("doing1").style.display = "none";
+                document.getElementById("done1").style.display = "block";
+        }
+    </script>
+</div>
+</div>
+    <div id="all">
+    <div id="title" align="center">
+        <div align="left" onclick="back()" id="back">
+            <svg xmlns="http://www.w3.org/2000/svg" style="filter: brightness(0) invert(1);" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                <g id="Icon_8_">
+                    <g>
+                        <path d="M427,234.625H167.296l119.702-119.702L256,85L85,256l171,171l29.922-29.924L167.296,277.375H427V234.625z"/>
+                    </g>
+                </g>
+                </svg>
+        </div>
+        <h3 style="display: inline-block;">To do list</h3>
+        
+        <script>
+            function back(){
+                document.getElementById("all2").style.display = "block";
+                document.getElementById("all").style.display = "none";
+            }
+        </script>
+        <br>
+        <br>
+        <div align="center">
+        <button class="title-btn" id="todo" onclick="todo()">To Do</button>
+        <button class="title-btn" id="doing" onclick="doing()">Doing</button>
+        <button class="title-btn" id="done" onclick="done()">Done</button>
+        <script>
+            function todo(){
+                document.getElementById("todo").style.borderBottom = "5px solid rgb(7, 76, 133)";
+                document.getElementById("doing").style.borderBottom = "none";
+                document.getElementById("done").style.borderBottom = "none";
+                document.getElementById("to-do").style.display = "block";
+                document.getElementById("doing1").style.display = "none";
+                document.getElementById("done1").style.display = "none";
+            }
+            function doing(){
+                document.getElementById("doing").style.borderBottom = "5px solid rgb(7, 76, 133)";
+                document.getElementById("todo").style.borderBottom = "none";
+                document.getElementById("done").style.borderBottom = "none";
+                document.getElementById("to-do").style.display = "none";
+                document.getElementById("doing1").style.display = "block";
+                document.getElementById("done1").style.display = "none";
+            }
+            function done(){
+                document.getElementById("done").style.borderBottom = "5px solid rgb(7, 76, 133)";
+                document.getElementById("doing").style.borderBottom = "none";
+                document.getElementById("todo").style.borderBottom = "none";
+                document.getElementById("to-do").style.display = "none";
+                document.getElementById("doing1").style.display = "none";
+                document.getElementById("done1").style.display = "block";
+            }
+        </script>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div align="center" id="to-do">
+    <textarea id="input" oninput="save()"  >Write...</textarea>
+    </div>
+
+
+    <div align="center" id="doing1">
+        <textarea id="input1" oninput="save1()"  >Write...</textarea>
+    </div>
+    
+    <div align="center" id="done1">
+        <textarea id="input2" oninput="save2()"  >Write...</textarea>
+    </div>
+</div>
+    <script>
+
+        function save(){
+
+            let data = document.getElementById("input").value;
+            localStorage.setItem("data", data);
+            document.getElementById("input").value = localStorage.getItem("data");
+
+        }
+        function save1(){
+
+let data = document.getElementById("input1").value;
+localStorage.setItem("data1", data);
+document.getElementById("input1").value = localStorage.getItem("data1");
+
+}
+function save2(){
+
+let data = document.getElementById("input2").value;
+localStorage.setItem("data2", data);
+document.getElementById("input2").value = localStorage.getItem("data2");
+
+}
+        
+        function get(){
+            
+            document.getElementById("input").value = localStorage.getItem("data");
+            document.getElementById("input1").value = localStorage.getItem("data1");
+            document.getElementById("input2").value = localStorage.getItem("data2");
+        }
+       
+    </script>
+</body>
+</html>
