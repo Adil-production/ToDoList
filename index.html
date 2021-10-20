@@ -5,248 +5,277 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-<style>
-   
-    #input:focus , #input1:focus , #input2:focus{
-         outline: none;
-         
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+
+  <style>
+    :root {
+        --ion-safe-area-top: 20px;
+        --ion-safe-area-bottom: 22px;
     }
-    #input , #input1 , #input2{
-         resize: none;
-         padding: 10px;
-         border-radius: 20px;
-         background-color: rgb(181, 226, 252);
-         color: black;
-         font-size: 20px;
-         width: 95%;
-         height: 70vh;  
-         box-shadow: 0px 0px 10px 0.5px rgb(49, 49, 49);
+    *{
+      	-webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	 user-select: none; /* Standard */
     }
-    #title{
-        background-color: rgb(0, 162, 255);
-        padding: 10px;
-        color: white;
-        box-shadow: 0px 5px 20px 2px rgb(49, 49, 49);
-        width: 100%;
-        margin: -8px;
-        position: fixed;
-    }
-    #title2{
-        background-color: rgb(0, 162, 255);
-        padding: 10px;
-        color: white;
-        box-shadow: 0px 5px 20px 2px rgb(49, 49, 49);
-        width: 100%;
-        margin: -8px;
-        position: fixed;
-    }
-    .title-btn{
-        outline: none;
-        width: 34.5%;
-        padding: 15px;
-        margin: -5px;
-        color: white;
-        background : none;
-        border-left: none;
-        border-right: none;
-        border-top: none;
-        border-bottom: none;
-       transform: translateY(10%)   ;
-    }
-    #to-do , #doing1 , #done1{
-        display: none;
-    }
-    #all{
-        display: none;
-    }
-    .btn{
-        margin: 10px;
-        padding: 10px;
-        border: none;
-        background-color: rgb(202, 202, 202);
-        border-bottom: rgb(0, 162, 255) 5px solid;
-        color:rgb(0, 162, 255) ;
-    }
-    .btn:focus{
-    outline: none;
-    }
-    #back{
-        display: inline-block;
-        position: absolute;
-       left: 15px;
-       transform: translateY(90%);
-    }
-</style>
+  </style>
+
+
     <title>Document</title>
-    <style>
-        *{
-            font-family: 'Montserrat', sans-serif;
-        }
-    </style>
+    
 </head>
 <body onload="get()">
-<div id="all2">
-    <div align="center" id="title2">
-        <h3>To do list</h3>
-    </div>
+
    
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div align="center">
-    <button onclick="goToDo()" class="btn">To do</button>
-    <button onclick="goDoing()" class="btn">Doing</button>
-    <button onclick="goDone()" class="btn">Done</button>
-    <script>
-        function goToDo(){
-                document.getElementById("all2").style.display = "none";
-                document.getElementById("all").style.display = "block";
-                document.body.style.backgroundImage = "none";
-                document.getElementById("todo").style.borderBottom = "5px solid rgb(7, 76, 133)";
-                document.getElementById("doing").style.borderBottom = "none";
-                document.getElementById("done").style.borderBottom = "none";
-                document.getElementById("to-do").style.display = "block";
-                document.getElementById("doing1").style.display = "none";
-                document.getElementById("done1").style.display = "none";
-        }
-        function goDoing(){
-            document.getElementById("all2").style.display = "none";
-                document.getElementById("all").style.display = "block";
-                document.body.style.backgroundImage = "none";
-            document.getElementById("doing").style.borderBottom = "5px solid rgb(7, 76, 133)";
-                document.getElementById("todo").style.borderBottom = "none";
-                document.getElementById("done").style.borderBottom = "none";
-                document.getElementById("to-do").style.display = "none";
-                document.getElementById("doing1").style.display = "block";
-                document.getElementById("done1").style.display = "none";
-        }
-        function goDone(){
-            document.getElementById("all2").style.display = "none";
-                document.getElementById("all").style.display = "block";
-                document.body.style.backgroundImage = "none";
-            document.getElementById("done").style.borderBottom = "5px solid rgb(7, 76, 133)";
-                document.getElementById("doing").style.borderBottom = "none";
-                document.getElementById("todo").style.borderBottom = "none";
-                document.getElementById("to-do").style.display = "none";
-                document.getElementById("doing1").style.display = "none";
-                document.getElementById("done1").style.display = "block";
-        }
-    </script>
-</div>
-</div>
-    <div id="all">
-    <div id="title" align="center">
-        <div align="left" onclick="back()" id="back">
-            <svg xmlns="http://www.w3.org/2000/svg" style="filter: brightness(0) invert(1);" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                <g id="Icon_8_">
-                    <g>
-                        <path d="M427,234.625H167.296l119.702-119.702L256,85L85,256l171,171l29.922-29.924L167.296,277.375H427V234.625z"/>
-                    </g>
-                </g>
-                </svg>
-        </div>
-        <h3 style="display: inline-block;">To do list</h3>
+    <ion-app>
         
-        <script>
-            function back(){
-                document.getElementById("all2").style.display = "block";
-                document.getElementById("all").style.display = "none";
-            }
-        </script>
-        <br>
-        <br>
-        <div align="center">
-        <button class="title-btn" id="todo" onclick="todo()">To Do</button>
-        <button class="title-btn" id="doing" onclick="doing()">Doing</button>
-        <button class="title-btn" id="done" onclick="done()">Done</button>
-        <script>
-            function todo(){
-                document.getElementById("todo").style.borderBottom = "5px solid rgb(7, 76, 133)";
-                document.getElementById("doing").style.borderBottom = "none";
-                document.getElementById("done").style.borderBottom = "none";
-                document.getElementById("to-do").style.display = "block";
-                document.getElementById("doing1").style.display = "none";
-                document.getElementById("done1").style.display = "none";
-            }
-            function doing(){
-                document.getElementById("doing").style.borderBottom = "5px solid rgb(7, 76, 133)";
-                document.getElementById("todo").style.borderBottom = "none";
-                document.getElementById("done").style.borderBottom = "none";
-                document.getElementById("to-do").style.display = "none";
-                document.getElementById("doing1").style.display = "block";
-                document.getElementById("done1").style.display = "none";
-            }
-            function done(){
-                document.getElementById("done").style.borderBottom = "5px solid rgb(7, 76, 133)";
-                document.getElementById("doing").style.borderBottom = "none";
-                document.getElementById("todo").style.borderBottom = "none";
-                document.getElementById("to-do").style.display = "none";
-                document.getElementById("doing1").style.display = "none";
-                document.getElementById("done1").style.display = "block";
-            }
-        </script>
-    </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+        <ion-menu side="start" content-id="main-content">
+            <ion-header>
+              <ion-toolbar translucent>
+                <ion-title>Menu</ion-title>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <ion-list>
+                <ion-item onclick="add()">
+                  <ion-icon name="create" slot="start"></ion-icon>
+                  <ion-label>Add</ion-label>
+                </ion-item>
+                <ion-item onclick="view()">
+                  <ion-icon name="eye" slot="start"></ion-icon>
+                  <ion-label>View</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </ion-menu>
+      
+          <div class="ion-page" id="main-content">
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title>To Do List</ion-title>
+              </ion-toolbar>
+              <ion-toolbar id="segment">
+                <ion-segment value="all">
+                  <ion-segment-button value="all" onclick="document.getElementById('todo').style.display = 'block'; document.getElementById('doing').style.display = 'block';document.getElementById('done').style.display = 'block'; ">All</ion-segment-button>
+                  <ion-segment-button value="todo" onclick="todo()">To Do</ion-segment-button>
+                  <ion-segment-button value="doing" onclick="doing()">Doing</ion-segment-button>
+                  <ion-segment-button value="done" onclick="done()">Done</ion-segment-button>
+                </ion-segment>
+              </ion-toolbar>
+            </ion-header>
+           
+              <ion-content fullscreen>
+              
+              <br>
+              <br>
+              <div id="add" >
+              <div id="todo">
+                  <h2 style="margin: 10px;">To Do</h2>
+                  <ion-item>
+                    <ion-label position="floating" style="color: gray;">To Do</ion-label>
+                    <ion-input id="input"></ion-input>
+                    <ion-button slot="end" onclick="plus()"><ion-icon name="add-outline"></ion-icon></ion-button>
+                  </ion-item>
+              </div>
+
+              <div id="doing">
+                <h2 style="margin: 10px;">Doing</h2>
+                <ion-item>
+                  <ion-label position="floating" style="color: gray;">Doing</ion-label>
+                  <ion-input id="input1"></ion-input>
+                  <ion-button slot="end" onclick="plus1()"><ion-icon name="add-outline"></ion-icon></ion-button>
+                </ion-item>
+                
+            </div>
+
+            <div id="done">
+                <h2 style="margin: 10px;">Done</h2>
+                <ion-item>
+                  <ion-label position="floating" style="color: gray;">Done</ion-label>
+                  <ion-input id="input2"></ion-input>
+                  <ion-button slot="end" onclick="plus2()"><ion-icon name="add-outline"></ion-icon></ion-button>
+                </ion-item>
+            </div>
+
+            
+        </div>
+        <div id="view" style="display: none;">
+            
+            <ion-list-header>
+                <ion-item>
+                    <ion-icon slot="start" name="trash" color="danger" onclick="todoDelete()"></ion-icon>
+                    <ion-label>To do</ion-label>
+                </ion-item>
+              </ion-list-header>
+
+            <ion-list style="margin: 10px;"  id="todo-view"></ion-list>
+            
 
 
-    <div align="center" id="to-do">
-    <textarea id="input" oninput="save()"  >Write...</textarea>
-    </div>
+            <ion-list-header>
+                <ion-item>
+                    <ion-icon slot="start" name="trash" color="danger" onclick="doingDelete()"></ion-icon>
+                    <ion-label>Doing</ion-label>
+                </ion-item>
+              </ion-list-header>
+            <ion-list  style="margin: 10px;" id="doing-view"></ion-list>
+            
 
-
-    <div align="center" id="doing1">
-        <textarea id="input1" oninput="save1()"  >Write...</textarea>
-    </div>
+            
+                
+              
+            <ion-list-header>
+                <ion-item>
+                    <ion-icon slot="start" name="trash" color="danger" onclick="doneDelete()"></ion-icon>
+                    <ion-label>Done</ion-label>
+                </ion-item>
+              </ion-list-header>
+            <ion-list style="margin: 10px;"  id="done-view"></ion-list>
+            
+        </div>
+        
     
-    <div align="center" id="done1">
-        <textarea id="input2" oninput="save2()"  >Write...</textarea>
-    </div>
-</div>
+
+        
+
+
+        
+        </ion-content>
+      </ion-app>
+
+        
+    
     <script>
-
-        function save(){
-
-            let data = document.getElementById("input").value;
-            localStorage.setItem("data", data);
-            document.getElementById("input").value = localStorage.getItem("data");
-
+        
+        function todo(){
+            document.getElementById("todo").style.display = "block";
+            document.getElementById("doing").style.display = "none";
+            document.getElementById("done").style.display = "none";
         }
-        function save1(){
+        function doing(){
+            document.getElementById("todo").style.display = "none";
+            document.getElementById("doing").style.display = "block";
+            document.getElementById("done").style.display = "none";
+        }
+        function done(){
+            document.getElementById("todo").style.display = "none";
+            document.getElementById("doing").style.display = "none";
+            document.getElementById("done").style.display = "block";
+        }
+        
+function add(){
+    document.getElementById("view").style.display = "none";
+    document.getElementById("add").style.display = "block";
+    document.getElementById("segment").style.display =  "block";
+}
+function view(){
+    document.getElementById("view").style.display = "block";
+    document.getElementById("add").style.display = "none";
+    document.getElementById("segment").style.display =  "none";
+}
 
-let data = document.getElementById("input1").value;
-localStorage.setItem("data1", data);
-document.getElementById("input1").value = localStorage.getItem("data1");
+function todoDelete(){
+    
+    document.getElementById("todo-view").innerHTML = "";
+    localStorage.setItem("data" , "")
+}
+function doingDelete(){
+    document.getElementById("doing-view").innerHTML = "";
+    localStorage.setItem("data1" , "")
+}
+function doneDelete(){
+    document.getElementById("done-view").innerHTML = "";
+    localStorage.setItem("data2" , "")
+}
+        
+        function plus(){
+            if (confirm('Are you sure to store this ?')) {
+                let input = document.getElementById("input");
+                if(input.value == ""){
+                    alert("the field is empty !")
+                }
+                else{
+
+                
+            document.getElementById("todo-view").innerHTML += `
+            <ion-item>
+          <ion-label>${input.value}</ion-label>
+        </ion-item>
+          
+            `;
+            let data = document.getElementById("todo-view").innerHTML;
+            localStorage.setItem("data", data);
+            document.getElementById("input").value = "";
+                }
+} else {
+ 
+}
+            
+        }
+        function plus1(){
+
+           if (confirm('Are you sure to store this ?')) {
+                let input = document.getElementById("input1");
+                if(input.value == ""){
+                    alert("the field is empty !")
+                }
+                else{
+
+                
+            document.getElementById("doing-view").innerHTML += `
+            <ion-item>
+          <ion-label>${input.value}</ion-label>
+        </ion-item>
+          
+            `;
+            let data = document.getElementById("doing-view").innerHTML;
+            localStorage.setItem("data1", data);
+            document.getElementById("input1").value = "";
+                }
+} else {
+ 
+}
 
 }
-function save2(){
+function plus2(){
 
-let data = document.getElementById("input2").value;
-localStorage.setItem("data2", data);
-document.getElementById("input2").value = localStorage.getItem("data2");
+    if (confirm('Are you sure to store this ?')) {
+                let input = document.getElementById("input2");
+                if(input.value == ""){
+                    alert("the field is empty !")
+                }
+                else{
+
+                
+            document.getElementById("done-view").innerHTML += `
+            <ion-item id="item">
+          <ion-label>${input.value}</ion-label>
+        </ion-item>
+          
+            `;
+            let data = document.getElementById("done-view").innerHTML;
+            localStorage.setItem("data2", data);
+            document.getElementById("input2").value = "";
+                }
+} else {
+ 
+}
 
 }
+
+
         
         function get(){
             
-            document.getElementById("input").value = localStorage.getItem("data");
-            document.getElementById("input1").value = localStorage.getItem("data1");
-            document.getElementById("input2").value = localStorage.getItem("data2");
+            document.getElementById("todo-view").innerHTML = localStorage.getItem("data");
+            document.getElementById("doing-view").innerHTML = localStorage.getItem("data1");
+            document.getElementById("done-view").innerHTML = localStorage.getItem("data2");
         }
        
     </script>
