@@ -42,10 +42,10 @@
               <ion-tabs>
                 <ion-tab tab="movies">
                   <ion-header translucent>
-                    <ion-toolbar>
+                    <ion-toolbar color="primary">
                       <ion-title>To do</ion-title>
                     </ion-toolbar>
-                    <ion-toolbar id="segment">
+                    <ion-toolbar id="segment" color="primary">
                       <ion-segment value="all">
                         <ion-segment-button value="all" onclick="document.getElementById('todo').style.display = 'block'; document.getElementById('doing').style.display = 'block';document.getElementById('done').style.display = 'block'; ">All</ion-segment-button>
                         <ion-segment-button value="todo" onclick="todo()">To Do</ion-segment-button>
@@ -92,7 +92,7 @@
           
                 <ion-tab tab="games">
                   <ion-header translucent>
-                    <ion-toolbar>
+                    <ion-toolbar color="primary">
                       <ion-title>View</ion-title>
                     </ion-toolbar>
                   </ion-header>
@@ -135,7 +135,7 @@
                   </ion-content>
                 </ion-tab>
           
-                <ion-tab-bar slot="bottom">
+                <ion-tab-bar slot="bottom" color="primary">
                   <ion-tab-button tab="movies">
                     <ion-label>Add</ion-label>
                     <ion-icon name="add"></ion-icon>
