@@ -100,36 +100,35 @@
                   <ion-content fullscreen class="ion-padding">
                     <div id="view">
             
-                      <ion-list-header>
+                      
                           <ion-item>
-                              <ion-icon slot="start" name="trash" color="danger" onclick="todoDelete()"></ion-icon>
-                              <ion-label>To do</ion-label>
+                            <ion-icon  name="trash" slot="start" color="danger" style="font-size: 25px;" onclick="todoDelete()"></ion-icon>
+                            <ion-icon name="checkmark-outline" slot="start" color="success" style="font-size: 25px;" onclick="todoCheck()"></ion-icon>
+                            <ion-label>To do</ion-label>
                           </ion-item>
-                        </ion-list-header>
-          
-                      <ion-list style="margin: 10px;"  id="todo-view"></ion-list>
+                          <ul style="margin: 10px;"  id="todo-view"></ul>
                       
           
           
-                      <ion-list-header>
+                     
                           <ion-item>
-                              <ion-icon slot="start" name="trash" color="danger" onclick="doingDelete()"></ion-icon>
+                              <ion-icon slot="start" name="trash" color="danger" style="font-size: 25px;" onclick="doingDelete()"></ion-icon>
+                              <ion-icon name="checkmark-outline" slot="start" color="success" style="font-size: 25px;" onclick="doingCheck()"></ion-icon>
                               <ion-label>Doing</ion-label>
                           </ion-item>
-                        </ion-list-header>
-                      <ion-list  style="margin: 10px;" id="doing-view"></ion-list>
+                          <ul  style="margin: 10px;" id="doing-view"></ul>
                       
           
                       
                           
                         
-                      <ion-list-header>
+
                           <ion-item>
-                              <ion-icon slot="start" name="trash" color="danger" onclick="doneDelete()"></ion-icon>
+                              <ion-icon slot="start" name="trash" color="danger" style="font-size: 25px;" onclick="doneDelete()"></ion-icon>
                               <ion-label>Done</ion-label>
                           </ion-item>
-                        </ion-list-header>
-                      <ion-list style="margin: 10px;"  id="done-view"></ion-list>
+
+                      <ul style="margin: 10px;"  id="done-view"></ul>
                       
                     </div>
                   </ion-content>
@@ -188,6 +187,22 @@ function doneDelete(){
     document.getElementById("done-view").innerHTML = "";
     localStorage.setItem("data2" , "")
 }
+function todoCheck(){
+     let data = document.getElementById("todo-view").innerHTML + document.getElementById("doing-view").innerHTML;
+     console.log(data);
+     localStorage.setItem("data1" , data);
+     document.getElementById("doing-view").innerHTML +=  document.getElementById("todo-view").innerHTML;
+     document.getElementById("todo-view").innerHTML = "";
+     localStorage.setItem("data" , "");
+}
+function doingCheck(){
+  let data = document.getElementById("doing-view").innerHTML + document.getElementById("done-view").innerHTML;
+     console.log(data);
+     localStorage.setItem("data2" , data);
+     document.getElementById("done-view").innerHTML +=  document.getElementById("doing-view").innerHTML;
+     document.getElementById("doing-view").innerHTML = "";
+     localStorage.setItem("data1" , "");
+}
         
         function plus(){
             if (confirm('Are you sure to store this ?')) {
@@ -196,13 +211,10 @@ function doneDelete(){
                     alert("the field is empty !")
                 }
                 else{
-
-                
             document.getElementById("todo-view").innerHTML += `
-            <ion-item>
+      <li>
           <ion-label>${input.value}</ion-label>
-        </ion-item>
-          
+      </li>
             `;
             let data = document.getElementById("todo-view").innerHTML;
             localStorage.setItem("data", data);
@@ -224,9 +236,9 @@ function doneDelete(){
 
                 
             document.getElementById("doing-view").innerHTML += `
-            <ion-item>
-          <ion-label>${input.value}</ion-label>
-        </ion-item>
+            <li>
+              <ion-label>${input.value}</ion-label>
+            </li>
           
             `;
             let data = document.getElementById("doing-view").innerHTML;
@@ -249,9 +261,9 @@ function plus2(){
 
                 
             document.getElementById("done-view").innerHTML += `
-            <ion-item id="item">
-          <ion-label>${input.value}</ion-label>
-        </ion-item>
+            <li>
+              <ion-label>${input.value}</ion-label>
+            </li>
           
             `;
             let data = document.getElementById("done-view").innerHTML;
