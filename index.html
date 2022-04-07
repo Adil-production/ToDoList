@@ -1,290 +1,211 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<!-- Chrome, Firefox OS and Opera -->
-<meta name="theme-color" content="#fff">
-<!-- Windows Phone -->
-<meta name="msapplication-navbutton-color" content="#fff">
-<!-- iOS Safari -->
-<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-
-
-
-
     <title>Document</title>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+<style>
     
+
+    
+
+    form input {
+      border: none;
+      background-color: #3c4979;
+      font-size: 18px;
+      color: rgb(5, 5, 5);
+      padding: 10px;
+      width: 90%;
+    }
+
+    form button {
+      border: none;
+      color: rgb(27, 27, 27);
+      background-color: #1dd2af;
+      font-size: 25px;
+      font-weight: 600;
+      height: 42px;
+      width: 10%;
+    }
+
+     ul {
+      list-style: none;
+      color: #1a1a1a;
+      padding: 0;
+    }
+
+    ul li {
+      padding: 10px;
+    }
+
+    .check {
+      width: 0.8em;
+      height: 0.8em;
+      cursor: pointer;
+      border-radius: 50%;
+      background-color: rgb(179, 179, 179);
+      -webkit-appearance: none;
+    }
+
+    .check:checked {
+      background-color: #006eff;
+    }
+
+    .task {
+      font-size: 18px;
+      padding: 0 10px;
+      width: fit-content;
+      background: transparent;
+      border: none;
+      color: rgb(15, 15, 15);
+    }
+
+    .task:focus {
+      outline: none;
+    }
+
+    ul li i {
+      float: right;
+      cursor: pointer;
+    }
+
+     ul li i:hover {
+      color: rgb(255, 82, 82);
+    }
+
+    .completed {
+      color: rgba(192, 192, 192, 0.8);
+      text-decoration: line-through;
+    }
+</style>
 </head>
-<body onload="get()">
-
-   
+<body>
     <ion-app>
-        
-        
-      
-        
-
-           
-              
-              
-              <br>
-              <br>
-
-
-        
-    
-              <ion-tabs>
-                <ion-tab tab="movies">
-                  <ion-header translucent>
-                    <ion-toolbar>
-                      <ion-title>To do</ion-title>
-                    </ion-toolbar>
-                    <ion-toolbar id="segment">
-                      <ion-segment value="all">
-                        <ion-segment-button value="all" onclick="document.getElementById('todo').style.display = 'block'; document.getElementById('doing').style.display = 'block';document.getElementById('done').style.display = 'block'; ">All</ion-segment-button>
-                        <ion-segment-button value="todo" onclick="todo()">To Do</ion-segment-button>
-                        <ion-segment-button value="doing" onclick="doing()">Doing</ion-segment-button>
-                        <ion-segment-button value="done" onclick="done()">Done</ion-segment-button>
-                      </ion-segment>
-                    </ion-toolbar>
-                  </ion-header>
-          
-                  <ion-content fullscreen class="ion-padding">
-                    <div id="add" >
-                      <div id="todo">
-                          <h2 style="margin: 10px;">To Do</h2>
-                          <ion-item>
-                            <ion-label position="floating" style="color: gray;">To Do</ion-label>
-                            <ion-input id="input"></ion-input>
-                            <ion-button slot="end" onclick="plus()"><ion-icon name="add-outline"></ion-icon></ion-button>
-                          </ion-item>
-                      </div>
-        
-                      <div id="doing">
-                        <h2 style="margin: 10px;">Doing</h2>
-                        <ion-item>
-                          <ion-label position="floating" style="color: gray;">Doing</ion-label>
-                          <ion-input id="input1"></ion-input>
-                          <ion-button slot="end" onclick="plus1()"><ion-icon name="add-outline"></ion-icon></ion-button>
-                        </ion-item>
-                        
-                    </div>
-        
-                    <div id="done">
-                        <h2 style="margin: 10px;">Done</h2>
-                        <ion-item>
-                          <ion-label position="floating" style="color: gray;">Done</ion-label>
-                          <ion-input id="input2"></ion-input>
-                          <ion-button slot="end" onclick="plus2()"><ion-icon name="add-outline"></ion-icon></ion-button>
-                        </ion-item>
-                    </div>
-        
-                    
-                    </div>
-                  </ion-content>
-                </ion-tab>
-          
-                <ion-tab tab="games">
-                  <ion-header translucent>
-                    <ion-toolbar>
-                      <ion-title>View</ion-title>
-                    </ion-toolbar>
-                  </ion-header>
-          
-                  <ion-content fullscreen class="ion-padding">
-                    <div id="view">
-            
-                      
-                          <ion-item>
-                            <ion-icon  name="trash" slot="start" color="danger" style="font-size: 25px;" onclick="todoDelete()"></ion-icon>
-                            <ion-icon name="checkmark-outline" slot="start" color="success" style="font-size: 25px;" onclick="todoCheck()"></ion-icon>
-                            <ion-label>To do</ion-label>
-                          </ion-item>
-                          <ul style="margin: 10px;"  id="todo-view"></ul>
-                      
-          
-          
-                     
-                          <ion-item>
-                              <ion-icon slot="start" name="trash" color="danger" style="font-size: 25px;" onclick="doingDelete()"></ion-icon>
-                              <ion-icon name="checkmark-outline" slot="start" color="success" style="font-size: 25px;" onclick="doingCheck()"></ion-icon>
-                              <ion-label>Doing</ion-label>
-                          </ion-item>
-                          <ul  style="margin: 10px;" id="doing-view"></ul>
-                      
-          
-                      
-                          
-                        
-
-                          <ion-item>
-                              <ion-icon slot="start" name="trash" color="danger" style="font-size: 25px;" onclick="doneDelete()"></ion-icon>
-                              <ion-label>Done</ion-label>
-                          </ion-item>
-
-                      <ul style="margin: 10px;"  id="done-view"></ul>
-                      
-                    </div>
-                  </ion-content>
-                </ion-tab>
-          
-                <ion-tab-bar slot="bottom" >
-                  <ion-tab-button tab="movies">
-                    <ion-label>Add</ion-label>
-                    <ion-icon name="add"></ion-icon>
-                  </ion-tab-button>
-                  <ion-tab-button tab="games">
-                    <ion-label>View</ion-label>
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </ion-tab-button>
-                </ion-tab-bar>
-              </ion-tabs>
-        
-
-
-        
-        
-      </ion-app>
-
-        
-    
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Tasks</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <br>
+            <form>
+                <ion-item>
+                    <ion-input placeholder="New task" style="display: inline-block;"></ion-input><ion-button style="display: inline-block; font-size: 15px; width: 40px; height: 40px;" type="submit"><ion-icon name="add-outline"></ion-icon></ion-button>
+                </ion-item>
+            </form>
+            <br>
+            <ul></ul>
+        </ion-content>
+    </ion-app>
     <script>
-        
-        function todo(){
-            document.getElementById("todo").style.display = "block";
-            document.getElementById("doing").style.display = "none";
-            document.getElementById("done").style.display = "none";
-        }
-        function doing(){
-            document.getElementById("todo").style.display = "none";
-            document.getElementById("doing").style.display = "block";
-            document.getElementById("done").style.display = "none";
-        }
-        function done(){
-            document.getElementById("todo").style.display = "none";
-            document.getElementById("doing").style.display = "none";
-            document.getElementById("done").style.display = "block";
-        }
-        
-
-
-function todoDelete(){
+        // On app load, get all tasks from localStorage
+        window.onload = loadTasks;
     
-    document.getElementById("todo-view").innerHTML = "";
-    localStorage.setItem("data" , "")
-}
-function doingDelete(){
-    document.getElementById("doing-view").innerHTML = "";
-    localStorage.setItem("data1" , "")
-}
-function doneDelete(){
-    document.getElementById("done-view").innerHTML = "";
-    localStorage.setItem("data2" , "")
-}
-function todoCheck(){
-     let data = document.getElementById("todo-view").innerHTML + document.getElementById("doing-view").innerHTML;
-     console.log(data);
-     localStorage.setItem("data1" , data);
-     document.getElementById("doing-view").innerHTML +=  document.getElementById("todo-view").innerHTML;
-     document.getElementById("todo-view").innerHTML = "";
-     localStorage.setItem("data" , "");
-}
-function doingCheck(){
-  let data = document.getElementById("doing-view").innerHTML + document.getElementById("done-view").innerHTML;
-     console.log(data);
-     localStorage.setItem("data2" , data);
-     document.getElementById("done-view").innerHTML +=  document.getElementById("doing-view").innerHTML;
-     document.getElementById("doing-view").innerHTML = "";
-     localStorage.setItem("data1" , "");
-}
-        
-        function plus(){
-            if (confirm('Are you sure to store this ?')) {
-                let input = document.getElementById("input");
-                if(input.value == ""){
-                    alert("the field is empty !")
-                }
-                else{
-            document.getElementById("todo-view").innerHTML += `
-      <li>
-          <ion-label>${input.value}</ion-label>
-      </li>
-            `;
-            let data = document.getElementById("todo-view").innerHTML;
-            localStorage.setItem("data", data);
-            document.getElementById("input").value = "";
-                }
-} else {
- 
-}
-            
+        // On form submit add task
+        document.querySelector("form").addEventListener("submit", e => {
+          e.preventDefault();
+          addTask();
+        });
+    
+        function loadTasks() {
+          // check if localStorage has any tasks
+          // if not then return
+          if (localStorage.getItem("tasks") == null) return;
+    
+          // Get the tasks from localStorage and convert it to an array
+          let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+    
+          // Loop through the tasks and add them to the list
+          tasks.forEach(task => {
+            const list = document.querySelector("ul");
+            const li = document.createElement("li");
+            li.innerHTML = `<input type="checkbox" onclick="taskComplete(this)" class="check" ${task.completed ? 'checked' : ''}>
+              <input type="text" value="${task.task}" class="task ${task.completed ? 'completed' : ''}" onfocus="getCurrentTask(this)" onblur="editTask(this)">
+              <i style="font-size:15px" onclick="removeTask(this)" class="fa fa-trash"><ion-icon name="close-sharp"></ion-icon></i>`;
+            list.insertBefore(li, list.children[0]);
+          });
         }
-        function plus1(){
-
-           if (confirm('Are you sure to store this ?')) {
-                let input = document.getElementById("input1");
-                if(input.value == ""){
-                    alert("the field is empty !")
-                }
-                else{
-
-                
-            document.getElementById("doing-view").innerHTML += `
-            <li>
-              <ion-label>${input.value}</ion-label>
-            </li>
-          
-            `;
-            let data = document.getElementById("doing-view").innerHTML;
-            localStorage.setItem("data1", data);
-            document.getElementById("input1").value = "";
-                }
-} else {
- 
-}
-
-}
-function plus2(){
-
-    if (confirm('Are you sure to store this ?')) {
-                let input = document.getElementById("input2");
-                if(input.value == ""){
-                    alert("the field is empty !")
-                }
-                else{
-
-                
-            document.getElementById("done-view").innerHTML += `
-            <li>
-              <ion-label>${input.value}</ion-label>
-            </li>
-          
-            `;
-            let data = document.getElementById("done-view").innerHTML;
-            localStorage.setItem("data2", data);
-            document.getElementById("input2").value = "";
-                }
-} else {
- 
-}
-
-}
-
-
-        
-        function get(){
-            
-            document.getElementById("todo-view").innerHTML = localStorage.getItem("data");
-            document.getElementById("doing-view").innerHTML = localStorage.getItem("data1");
-            document.getElementById("done-view").innerHTML = localStorage.getItem("data2");
+    
+        function addTask() {
+          const task = document.querySelector("form ion-input");
+          const list = document.querySelector("ul");
+          // return if task is empty
+          if (task.value === "") {
+            alert("Please add some task!");
+            return false;
+          }
+          // check is task already exist
+          if (document.querySelector(`ion-input[value="${task.value}"]`)) {
+            alert("Task already exist!");
+            return false;
+          }
+    
+          // add task to local storage
+          localStorage.setItem("tasks", JSON.stringify([...JSON.parse(localStorage.getItem("tasks") || "[]"), { task: task.value, completed: false }]));
+    
+          // create list item, add innerHTML and append to ul
+          const li = document.createElement("li");
+          li.innerHTML = `<input type="checkbox" onclick="taskComplete(this)" class="check">
+          <input type="text" value="${task.value}" class="task" onfocus="getCurrentTask(this)" onblur="editTask(this)">
+          <i style="font-size:15px" onclick="removeTask(this)" class="fa fa-trash"><ion-icon name="close-sharp"></ion-icon></i>`;
+          list.insertBefore(li, list.children[0]);
+          // clear input
+          task.value = "";
         }
-       
-    </script>
+    
+        function taskComplete(event) {
+          let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+          tasks.forEach(task => {
+            if (task.task === event.nextElementSibling.value) {
+              task.completed = !task.completed;
+            }
+          });
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+          event.nextElementSibling.classList.toggle("completed");
+        }
+    
+        function removeTask(event) {
+          let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+          tasks.forEach(task => {
+            if (task.task === event.parentNode.children[1].value) {
+              // delete task
+              tasks.splice(tasks.indexOf(task), 1);
+            }
+          });
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+          event.parentElement.remove();
+        }
+    
+        // store current task to track changes
+        var currentTask = null;
+    
+        // get current task
+        function getCurrentTask(event) {
+          currentTask = event.value;
+        }
+    
+        // edit the task and update local storage
+        function editTask(event) {
+          let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+          // check if task is empty
+          if (event.value === "") {
+            alert("Task is empty!");
+            event.value = currentTask;
+            return;
+          }
+          // update task
+          tasks.forEach(task => {
+            if (task.task === currentTask) {
+              task.task = event.value;
+            }
+          });
+          // update local storage
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+      </script>
 </body>
 </html>
