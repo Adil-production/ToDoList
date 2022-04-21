@@ -88,13 +88,18 @@
         <ion-header>
             <ion-toolbar>
                 <ion-title>Tasks</ion-title>
+                  <ion-buttons slot="end">
+                    <form>
+                      <ion-button type="submit"> Add </ion-button>
+                    </form>
+                  </ion-buttons>
             </ion-toolbar>
+           
         </ion-header>
         <ion-content>
             <br>
-            <form>
                 <ion-item>
-                    <ion-input placeholder="New task" style="display: inline-block;"></ion-input><ion-button style="display: inline-block; font-size: 15px; width: 40px; height: 40px;" type="submit"><ion-icon name="add-outline"></ion-icon></ion-button>
+                    <ion-input placeholder="New task" style="display: inline-block;"></ion-input>
                 </ion-item>
             </form>
             <br>
@@ -131,7 +136,7 @@
         }
     
         function addTask() {
-          const task = document.querySelector("form ion-input");
+          const task = document.querySelector("ion-input");
           const list = document.querySelector("ul");
           // return if task is empty
           if (task.value === "") {
